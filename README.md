@@ -97,10 +97,10 @@ Ce projet propose une **station de mesure d'enneigement autonome** conçue pour 
 - **Résistance** : Poussière, brouillard, fumée
 
 #### Avantages
-- ✅ Mesure directe en UART (pas de calcul de temps de vol)
-- ✅ Cône amovible pour optimiser la directivité
-- ✅ Meilleure pénétration que les HC-SR04 classiques
-- ✅ Alimentation flexible (3,3V-5V)
+- Mesure directe en UART (pas de calcul de temps de vol)
+- Cône amovible pour optimiser la directivité
+- Meilleure pénétration que les HC-SR04 classiques
+- Alimentation flexible (3,3V-5V)
 
 #### Documentation
 - 📖 [Guide officiel DF Robot](https://www.dfrobot.com/product-1934.html)
@@ -110,31 +110,9 @@ Ce projet propose une **station de mesure d'enneigement autonome** conçue pour 
 
 ![Capteur SEN0313](https://github.com/lorenzor0912/Projet-IT-Neige/blob/f1702dfe2ce56fabe681698466927644a630968b/ReadMe_IMG/SEN0313.JPG)
 
-**Lien d'achat** : [DFRobot Store](https://www.dfrobot.com/product-1934.html) | [Distributeurs locaux](https://www.dfrobot.com/distributors.html)
-
 ---
 
 ### 🖥️ Microcontrôleur
-
-**Option retenue** : Solution ESP tout-en-un (ESP32 recommandé)
-
-<details>
-<summary><strong>🔍 Pourquoi l'ESP32 ?</strong></summary>
-
-#### Avantages techniques
-- ✅ **WiFi & Bluetooth** intégrés
-- ✅ **Faible consommation** : modes deep sleep (<10 µA)
-- ✅ **Port SD natif** : SPI/SDMMC
-- ✅ **UART multiples** : communication capteur simplifiée
-- ✅ **Température d'opération** : -40°C à +125°C
-- ✅ **Prix abordable** : <5€ en volume
-
-#### Alternatives évaluées
-| Modèle | Avantages | Inconvénients |
-|--------|-----------|---------------|
-| **ESP32-S3** | Plus puissant, USB natif | Consommation légèrement supérieure |
-| **ESP32-C3** | RISC-V, très économe | Moins de GPIO |
-| **Arduino Mega** | Simplicité | Pas de WiFi natif, consommation élevée |
 
 #### Configuration recommandée
 ```
@@ -158,10 +136,10 @@ Le système utilise des technologies basse consommation pour maximiser l'autonom
 #### 📻 LoRaWAN (Mode principal retenu)
 - **Module** : RFM95W ou LILYGO T-Beam
 - **Avantages** :
-  - ✅ Très faible consommation (~20-50 mA en transmission)
-  - ✅ Portée longue distance (>10 km en terrain dégagé)
-  - ✅ Pas d'abonnement cellulaire
-  - ✅ Idéal pour mesures espacées (4h)
+  - Très faible consommation (~20-50 mA en transmission)
+  - Portée longue distance (>10 km en terrain dégagé)
+  - Pas d'abonnement cellulaire
+  - Idéal pour mesures espacées (4h)
 - **Inconvénients** : 
   - Infrastructure gateway requise
   - Débit limité (adapté à notre usage)
@@ -169,10 +147,10 @@ Le système utilise des technologies basse consommation pour maximiser l'autonom
 #### 🛰️ Meshtastic (Mode maillé retenu)
 - **Module** : T-Beam / Heltec LoRa
 - **Avantages** :
-  - ✅ Réseau maillé décentralisé
-  - ✅ Relais automatique entre stations
-  - ✅ Excellent pour zones isolées
-  - ✅ Faible consommation (~30-80 mA)
+  - Réseau maillé décentralisé
+  - Relais automatique entre stations
+  - Excellent pour zones isolées
+  - Faible consommation (~30-80 mA)
 - **Inconvénients** : Nécessite plusieurs nœuds pour le maillage optimal
 
 #### 🌐 4G/LTE (Option alternative)
@@ -228,20 +206,8 @@ Recommandation : Carte SD 8 Go minimum (marge confortable × 200,000)
 
 #### 🛒 Cartes SD recommandées (haute endurance)
 
-| Modèle | Capacité | Température | Endurance | Prix (indicatif) |
-|--------|----------|-------------|-----------|------------------|
-| **SanDisk Industrial XI** | 8-64 Go | -40°C à +85°C | Cycle d'écriture élevé | 13-30€ |
-| **SanDisk High Endurance** | 32-256 Go | -25°C à +85°C | Optimisé vidéo surveillance | 15-45€ |
-| **Samsung PRO Endurance** | 32-128 Go | -25°C à +85°C | Garantie 5 ans | 18-40€ |
-| **Kingston High Endurance** | 32-128 Go | -25°C à +85°C | Spécifications militaires | 16-38€ |
 
-**Critères de sélection prioritaires** :
-1. ⚡ **Plage de température** : -40°C minimum
-2. 🔄 **Cycles d'écriture** : >10,000 cycles P/E
-3. 🛡️ **Durabilité** : Résistance aux chocs et vibrations
-4. 📜 **Garantie** : Minimum 3 ans
 
-**Lien d'achat** : [SanDisk Industrial XI 8Go](https://www.mouser.fr/ProductDetail/SanDisk/SDSDQAF3-008G-XI?qs=F5EMLAvA7IAdyu9puKxNsg%3D%3D) (recommandé)
 
 ---
 
@@ -290,9 +256,9 @@ Consommation 4 mois :
 - Capacité utilisable : ~18 Ah (90% DoD)
 - Autonomie réelle : ~2 ans (!)
 - Avantages : 
-  - ✅ Excellente performance au froid
-  - ✅ Largement surdimensionné
-  - ✅ Compact et léger
+  -  Excellente performance au froid
+  -  Largement surdimensionné
+  -  Compact et léger
 - Prix : ~80-120€
 
 **Option 2 : Panneaux solaires + Petite batterie**
@@ -339,7 +305,7 @@ Le boîtier doit résister à des conditions extrêmes : neige, UV, humidité, t
 <summary><strong>📖 Notes techniques détaillées</strong></summary>
 
 #### Résistance au froid
-- **PLA** : Devient cassant en dessous de 0°C → ❌ **À ÉVITER**
+- **PLA** : Devient cassant en dessous de 0°C → **À ÉVITER**
 - **PC & Nylon** : Restent flexibles même à -30°C
 - **ASA/ASA-CF** : Température de fléchissement >100°C
 
@@ -379,29 +345,28 @@ Le boîtier doit résister à des conditions extrêmes : neige, UV, humidité, t
 
 </details>
 
-#### 🏆 Recommandations finales
 
-##### ✅ TOP 3 pour usage extérieur longue durée
+##### ✅ 3 Meilleurs matériaux usage extérieur
 
-1. **🥇 ASA-CF** (Champion toutes catégories)
+1. **ASA-CF** (Champion toutes catégories)
    - **Meilleur compromis** : rigidité / UV / froid / humidité
    - Idéal pour pièces structurelles exposées
    - Coût : ~40-60€/kg
-   - **⚠️ Attention** : Enceinte chauffée + buse renforcée requise (fivre de carbone bien abbrasif)
+   - **Attention** : Enceinte chauffée + buse renforcée requise (fivre de carbone bien abbrasif)
 
-2. **🥈 ASA standard** (Alternative économique) & (Probablement la meilleur option)
+2. **ASA standard** (Alternative économique) & (Probablement la meilleur option)
    - Si pas besoin de renfort carbone (pièces non-contraintes)
    - Résistance UV identique à l'ASA-CF
    - Plus facile à imprimer que la version CF
    - Coût : ~25-35€/kg 
 
-3. **🥉 PETG-CF** (Compromis sans enceinte) & (Probablement la deuxieme meilleur option)
+3. **PETG-CF** (Compromis sans enceinte) & (Probablement la deuxieme meilleur option)
    - Alternative si imprimante sans enceinte chauffée
    - Bon pour pièces internes du boitier
    - Hydrophobe excellent
    - Coût : ~35-50€/kg (ca pique un peu en effet pour du petg)
 
-##### ❌ À ÉVITER en extérieur
+##### À ÉVITER en extérieur
 
 | Matériau | Raison principale |
 |----------|-------------------|
