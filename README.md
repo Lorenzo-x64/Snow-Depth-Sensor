@@ -321,13 +321,13 @@ Au chomage technique ou en vacance?
 
 | Composant | Qté | Prix unitaire | Lien |
 |-----------|-----|---------------|------|
-| Capteur SEN0313 | 1 | ~30€ | [DFRobot](https://www.dfrobot.com/product-1934.html) |
-| ESP32-DevKitC | 1 | ~5€ | [AliExpress](https://www.aliexpress.com) |
-| Module LoRa RFM95W ou T-Beam | 1 | ~15–25€ | [Amazon](https://www.amazon.fr) |
-| Carte SD 8Go Industrial | 1 | ~13€ | [Mouser](https://www.mouser.fr) |
-| Batterie LiFePO4 12V 20Ah | 1 | ~100€ | [Spécialiste batteries] |
+| Capteur SEN0313 | 1 | ~30€ | [none](https://www..html) |
+| ESP32-DevKitC | 1 | ~5€ | [none](https://www..com) |
+| Module LoRa RFM95W ou T-Beam | 1 | ~15–25€ | [none](https://www..fr) |
+| Carte SD 8Go Industrial | 1 | ~13€ | [none](https://www..fr) |
+| Batterie LiFePO4 12V 20Ah | 1 | ~100€ | [ none] |
 | Boîtier ASA-CF (impression) | 1 | ~15€ (filament) | À imprimer |
-| Connectique étanche | Divers | ~10€ | [RS Components](https://fr.rs-online.com) |
+| Connectique étanche | Divers | ~10€ | [none](https://fr.com) |
 | **TOTAL** | | **~188–198€** | |
 
 ---
@@ -341,17 +341,6 @@ Ce projet est sous licence **GNU General Public License v3.0** — voir le fichi
 <div align="center">
 
 ### Développé par
-
-<div style="font-family: 'Courier New', Courier, monospace; white-space: pre; color: #d0d0d0;">
-<pre>
-   _____ _   _ ___  _____    _           _         
-  / ____| | (_)__ \|  __ \  | |         | |        
- | (___ | |_ _   ) | |  | | | |     __ _| |__  ___ 
-  \___ \| __| | / /| |  | | | |    / _` | '_ \/ __|
-  ____) | |_| |/ /_| |__| | | |___| (_| | |_) \__ \
- |_____/ \__|_|____|_____/  |______\__,_|_.__/|___/
-</pre>
-</div>
 
 <img src="https://github.com/Lorenzo-x64/Projet-IT-Neige/blob/a68dd4287c40711deb7713e88d299c58865ecca4/ReadMe_IMG/Sti%20Labs.svg" alt="Logo Sti2D Labs" width="600" height="600" />
 
