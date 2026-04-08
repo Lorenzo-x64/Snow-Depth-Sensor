@@ -1,6 +1,7 @@
 <div align="center">
  
-  # Capteur d'enneigement
+  # Snow Depth Sensor
+
 
 <div align="center">
   <picture>
