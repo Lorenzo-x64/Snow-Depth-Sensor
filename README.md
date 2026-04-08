@@ -59,7 +59,7 @@ Station de mesure d'enneigement autonome conçue pour fonctionner dans des condi
 
 ### Capteur ultrasonique
 
-**Modèle** : SEN0313 (DF Robot) / A01NYUB ou JSN-SR04T
+**Modèle** : SEN0313 / A01NYUB ou (JSN-SR04T possible)
 
 ![Capteur SEN0313](https://github.com/lorenzor0912/Projet-IT-Neige/blob/f1702dfe2ce56fabe681698466927644a630968b/ReadMe_IMG/SEN0313.JPG)
 
