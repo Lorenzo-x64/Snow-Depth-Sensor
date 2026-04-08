@@ -26,10 +26,10 @@
 
 - [Vue d'ensemble](#vue-densemble)
 - [Hardware](#hardware)
-  - [Capteur ultrasonique](#capteur-ultrasonique)
+  - [Capteur Principal](#capteur-principal)
   - [Microcontrôleur](#microcontrôleur)
-  - [Communications](#communications)
   - [Stockage](#stockage)
+  - [Communications](#communications)
   - [Alimentation](#alimentation)
   - [Matériaux & Boîtier](#matériaux--boîtier)
 - [Software](#software)
@@ -40,21 +40,17 @@
 
 ## Vue d'ensemble
 
-Station de mesure d'enneigement autonome conçue pour fonctionner dans des conditions climatiques extrêmes (jusqu'à -30°C). Idéale pour :
-
-- **Stations de ski** : suivi en temps réel de l'enneigement des pistes
-- **Observation météorologique** : collecte de données nivologiques
-- **Recherche environnementale** : étude de l'évolution du manteau neigeux
+Station de mesure d'enneigement autonome conçue pour fonctionner dans des conditions climatiques (jusqu'à -30°C) et piloté à distance.
 
 | Caractéristique | Spécification |
 |-----------------|---------------|
-| Plage de mesure | 28 cm à 750 cm (7,5 m) |
-| Résolution | 1 cm |
+| Plage de mesure | 30 cm à 750 cm (7,5 m) |
+| Résolution | +-1 cm |
 | Température d'opération | -30°C à +50°C |
 | Étanchéité | IP66 |
-| Autonomie | 4 mois (mode normal) |
-| Fréquence de mesure | Configurable (défaut : 4 heures) |
-| Connectivité | LoRaWAN / Meshtastic (4G optionnel) |
+| Autonomie |  mois (mode normal) |
+| Fréquence de mesure | Configurable (défaut : 1 heures) |
+| Connectivité | LoRaWAN |
 | Stockage local | Carte SD haute endurance |
 
 ---
@@ -63,7 +59,7 @@ Station de mesure d'enneigement autonome conçue pour fonctionner dans des condi
 
 ### Capteur ultrasonique
 
-**Modèle** : SEN0313 (DF Robot) / A01NYUB
+**Modèle** : SEN0313 (DF Robot) / A01NYUB ou JSN-SR04T
 
 ![Capteur SEN0313](https://github.com/lorenzor0912/Projet-IT-Neige/blob/f1702dfe2ce56fabe681698466927644a630968b/ReadMe_IMG/SEN0313.JPG)
 
