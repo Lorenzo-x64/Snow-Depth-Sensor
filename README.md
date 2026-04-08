@@ -1,4 +1,5 @@
-# Capteur d'enneigement
+<div align="center">
+  # Capteur d'enneigement
 
 <div align="center">
   <picture>
