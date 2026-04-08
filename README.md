@@ -98,15 +98,10 @@ Station de mesure d'enneigement autonome conçue pour fonctionner dans des condi
 
 ### Microcontrôleur
 
-```
-ESP32-WROOM-32D
-- Flash : 4 MB
-- RAM : 520 KB
-- Deep Sleep : 10 µA
-- GPIO : 34 pins
-```
 
-**Référence suggérée** : ESP32-DevKitC ou ESP32-WROVER pour stockage PSRAM additionnel
+**Référence suggérée** : ESP32-DevKitC ou ESP32-WROVER pour stockage PSRAM additionnel ou module basse consomation 
+
+ATTENTION! NE SONT PAS RECCOMANDE DES MODULES TOUS EN UN STYLE HELTEC LILYGO OU WAVESHARE (problème de librairies constaté sur heltec pour nous par ex)
 
 ---
 
@@ -122,18 +117,15 @@ Le système utilise des technologies basse consommation pour maximiser l'autonom
 - Pas d'abonnement cellulaire, idéal pour mesures espacées (4h)
 - Inconvénient : infrastructure gateway requise, débit limité
 
-#### Meshtastic (mode maillé retenu)
+#### Meshtastic 
 
-- **Module** : T-Beam / Heltec LoRa
-- Réseau maillé décentralisé, relais automatique entre stations
-- Excellent pour zones isolées (~30–80 mA)
-- Inconvénient : nécessite plusieurs nœuds pour un maillage optimal
+- Voir si intégration possible intéréssant car maillé
 
 #### 4G/LTE (option alternative)
 
 - **Module** : SIM7600E-H ou SIM800L
 - Couverture étendue, débit élevé, géolocalisation GPS intégrée
-- ⚠️ Consommation élevée (~100–500 mA) et coût d'abonnement (~10€/mois)
+- Consommation élevée (~100–500 mA) et coût d'abonnement (~10€/mois)
 
 <details>
 <summary>Tableau comparatif détaillé</summary>
@@ -145,8 +137,7 @@ Le système utilise des technologies basse consommation pour maximiser l'autonom
 | Coût opérationnel | 🟢 Gratuit | 🟢 Gratuit | 🔴 ~10€/mois |
 | Infrastructure | 🟡 Gateway requis | 🟡 Multi-nœuds | 🟢 Existante |
 | Latence | 🟡 Minutes | 🟡 Variable | 🟢 Temps réel |
-| Adapté mesure 4h | 🟢🟢 Parfait | 🟢🟢 Parfait | 🟢 Surdimensionné |
-| Recommandé pour | Zones rurales | Zones isolées | Zones urbaines |
+
 
 </details>
 
@@ -159,18 +150,9 @@ Le système utilise des technologies basse consommation pour maximiser l'autonom
 **Solution** : Carte microSD haute endurance
 
 Hypothèses de calcul :
-- Fréquence de mesure : 1 toutes les 4 heures
+- Fréquence de mesure : 1 toutes les heures
 - Durée : 4 mois (122 jours)
 - Format : CSV avec timestamp + distance + température
-
-```
-Mesures par jour : 24 / 4 = 6
-Total 4 mois    : 6 × 122 = 732 mesures
-Taille par entrée : ~50 octets (horodatage ISO8601 + valeurs)
-Espace total    : 732 × 50 ≈ 36,6 KB
-
-Recommandation : Carte SD 8 Go minimum (marge ×200 000)
-```
 
 ---
 
@@ -178,55 +160,8 @@ Recommandation : Carte SD 8 Go minimum (marge ×200 000)
 
 **Autonomie cible : 4 mois**
 
-<details>
-<summary>Calcul de consommation détaillé</summary>
+Mais réalistiquement infaisable sans panneau solaire et grosse batterie une grosse optimisation est a prévoir sur la partie code pour essayer de consomer le moins possible 
 
-**Mode actif (mesure + transmission LoRa)**
-- ESP32 : 80 mA
-- Capteur SEN0313 : 15 mA
-- Module LoRa (transmission) : 120 mA (pic)
-- Carte SD (écriture) : 50 mA
-- **Total actif** : ~265 mA pendant 10 secondes
-
-**Mode veille (deep sleep)**
-- ESP32 : 10 µA / Capteur (désactivé) : 5 µA / Module LoRa : 1 µA
-- **Total veille** : ~16 µA
-
-**Calcul quotidien (mesure toutes les 4 heures)**
-
-```
-Mesures par jour : 6
-Temps actif   : 6 × 10 sec = 60 s (0,0167 h)
-Temps veille  : 23,983 h
-
-Consommation :
-- Actif  : 265 mA × 0,0167 h = 4,4 mAh
-- Veille : 0,016 mA × 23,983 h = 0,4 mAh
-Total    : ~4,8 mAh / jour
-
-Sur 4 mois : 4,8 × 122 = 586 mAh ≈ 0,59 Ah
-```
-
-</details>
-
-**Option 1 — Batterie LiFePO4 compacte** (recommandée)
-- Modèle : 12V 20Ah LiFePO4
-- Capacité utilisable : ~18 Ah (90% DoD)
-- Autonomie réelle : ~2 ans
-- Excellente performance au froid, compact, largement surdimensionné
-- Prix : ~80–120€
-
-**Option 2 — Panneau solaire + petite batterie**
-- Panneau 10W monocristallin + batterie 12V 10Ah LiFePO4 + contrôleur MPPT 5A
-- Autonomie : illimitée (si ensoleillement >2h/jour)
-- Prix total : ~150–200€
-
-**Option 3 — Batteries 18650 (DIY)**
-- Configuration : 3S2P (12V, 6000 mAh) — 6× cellules 18650 + BMS 3S
-- Autonomie : ~1 an
-- Prix : ~40–60€
-
-**Recommandation finale** : Bah je sais pas!!!
 
 ---
 
@@ -274,25 +209,12 @@ Légende : 🟢🟢 Excellent · 🟢 Bon · 🟡 Moyen · 🔴 Faible · 🔴�
 
 </details>
 
-#### Classement pour usage extérieur
-
-1. **ASA-CF** — meilleur compromis rigidité / UV / froid / humidité. Enceinte chauffée + buse renforcée requises. ~40–60€/kg
-2. **ASA standard** — résistance UV identique, plus facile à imprimer, probablement la meilleure option. ~25–35€/kg
-3. **PETG-CF** — bon compromis si imprimante sans enceinte, excellent pour pièces internes. ~35–50€/kg
-
-**À éviter en extérieur**
-
-| Matériau | Raison |
-|----------|--------|
-| PLA | Dégradation rapide, cassant au froid, absorbe l'humidité |
-| ABS | Jaunissement et fragilisation aux UV en <2 ans |
-| Nylon PA6 | Absorption d'humidité excessive (8%), instabilité dimensionnelle |
 
 ---
 
 ## Software
 
-Au chomage technique ou en vacance?
+Le 13/03 Premier code fonctionel a prévoir une implémentation d'ecran tactile et de module lorawan Ebyte
 
 ### Fonctionnalités prévues
 
@@ -321,14 +243,14 @@ Au chomage technique ou en vacance?
 
 | Composant | Qté | Prix unitaire | Lien |
 |-----------|-----|---------------|------|
-| Capteur SEN0313 | 1 | ~30€ | [none](https://www..html) |
+| Capteur SEN0313 ou | 1 | ~30€ | [none](https://www..html) |
 | ESP32-DevKitC | 1 | ~5€ | [none](https://www..com) |
-| Module LoRa RFM95W ou T-Beam | 1 | ~15–25€ | [none](https://www..fr) |
+| Module LoRa  | 1 | ~15–25€ | [none](https://www..fr) |
 | Carte SD 8Go Industrial | 1 | ~13€ | [none](https://www..fr) |
 | Batterie LiFePO4 12V 20Ah | 1 | ~100€ | [ none] |
 | Boîtier ASA-CF (impression) | 1 | ~15€ (filament) | À imprimer |
 | Connectique étanche | Divers | ~10€ | [none](https://fr.com) |
-| **TOTAL** | | **~188–198€** | |
+| **TOTAL** | | **~a calculer** | |
 
 ---
 
