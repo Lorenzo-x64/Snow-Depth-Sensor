@@ -149,9 +149,7 @@ Le système utilise des technologies basse consommation pour maximiser l'autonom
 
 **Solution** : Carte microSD haute endurance
 
-Hypothèses de calcul :
 - Fréquence de mesure : 1 toutes les heures
-- Durée : 4 mois (122 jours)
 - Format : CSV avec timestamp + distance + température
 
 ---
